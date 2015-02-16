@@ -1,0 +1,29 @@
+{
+  "name": "marc4js_examples",
+  "version": "0.0.1",
+  "description": "Examples of how to use the marc4js module. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "for file in examples/*.js; do node $file; done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiaola/marc4js_examples.git"
+  },
+  "keywords": [
+    "marc4js",
+    "marc",
+    "node.js",
+    "javascript"
+  ],
+  "author": "Dazhi Jiao <dazhi.jiao@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiaola/marc4js_examples/issues"
+  },
+  "homepage": "https://github.com/jiaola/marc4js_examples",
+  "dependencies": {
+    "marc4js": "latest",
+    "should": "^5.0.0"
+  }
+}
