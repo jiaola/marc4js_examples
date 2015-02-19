@@ -6,6 +6,8 @@
 // run this in the marc4js directory
 // node samples/parse_stream_pipe.js
 
+// This examples shows how to use the stream API with pipes. 
+
 var marc4js = require('marc4js');
 var fs = require('fs');
 var should = require('should');

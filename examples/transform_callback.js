@@ -3,6 +3,8 @@
 // run this in the marc4js directory
 // node samples/stringify_callback.js
 
+// This examples shows how to use transfrom callback API to write objects to different formats
+
 var marc4js = require('marc4js');
 
 // build a record from scratch
@@ -14,12 +16,6 @@ record.addVariableField(new marc4js.marc.DataField("245", '1', '0', [["a", "Char
 record.addVariableField(new marc4js.marc.DataField("500", ' ', ' ', [["a", "An ebook provided by Project Gutenberg Australia"]]));
 record.addVariableField(new marc4js.marc.DataField("856", '4', '0', [["u", "http://gutenberg.net.au/ebooks07/0700761h.html "]]));
 
-// converts a single record
-marc4js.stringify(record, {}, function(err, data) {
-    console.log(data);
-});
-
-// build an array of records
 var records = [];
 records.push(record);
 
@@ -32,7 +28,31 @@ record2.addVariableField(new marc4js.marc.DataField("500", ' ', ' ', [["a", "An 
 record2.addVariableField(new marc4js.marc.DataField("856", '4', '0', [["u", "http://gutenberg.net.au/ebooks07/0700771h.html "]]));
 records.push(record2);
 
-// converts an array of records
-marc4js.stringify(records, {}, function(err, data) {
+// converts a single record
+marc4js.transform(record, {}, function(err, data) {
     console.log(data);
+    example1();
 });
+
+function example1() {
+    // converts an array of records to iso2709
+    marc4js.transform(records, {}, function(err, data) {
+        console.log(data);
+        example2();
+    });
+}
+
+function example2() {
+    // converts an array of records to marcxml
+    marc4js.transform(records, {toFormat: 'xml'}, function(err, data) {
+        console.log(data);
+        example3();
+    });
+}
+
+// converts an array of records to text (MarcEdit mrk file format)
+function example3() {
+    marc4js.transform(records, {toFormat: 'text'}, function(err, data) {
+        console.log(data);
+    });
+}
