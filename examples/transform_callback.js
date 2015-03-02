@@ -56,3 +56,10 @@ function example3() {
         console.log(data);
     });
 }
+
+// converts an array of records to MARC-in-JSON format
+function example4() {
+    marc4js.transform(records, {toFormat: 'mij'}, function(err, data) {
+        console.log(data);
+    });
+}

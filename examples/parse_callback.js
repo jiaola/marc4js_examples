@@ -24,8 +24,16 @@ fs.readFile('data/collection.xml', function(err, data) {
     });
 });
 
+// read MRK format
 fs.readFile('data/PGA_2records.mrk', function(err, data) {
     marc4js.parse(data, {fromFormat: 'mrk'}, function(err, records) {
+        records.length.should.eql(2);
+    });
+});
+
+// read MARC-in-JSON format
+fs.readFile('data/collection.json', function(err, data) {
+    marc4js.parse(data, {fromFormat: 'json'}, function(err, records) {
         records.length.should.eql(2);
     });
 });

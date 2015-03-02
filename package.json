@@ -1,6 +1,6 @@
 {
   "name": "marc4js_examples",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Examples of how to use the marc4js module. ",
   "main": "index.js",
   "scripts": {
